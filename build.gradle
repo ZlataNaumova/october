@@ -1,0 +1,51 @@
+plugins {
+    id 'java'
+}
+
+group 'testQA'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+
+dependencies {
+    // core dependencies
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    compile 'io.cucumber:cucumber-java:2.4.0'
+    compile 'io.cucumber:cucumber-guice:2.4.0'
+    compile 'com.google.guava:guava:21.0'
+
+    // dependency injection
+    compile 'com.google.inject:guice:4.1.0'
+
+    // selenium related dependencies
+    compile group: 'com.codeborne', name: 'selenide', version: '5.2.2'
+    implementation('net.lightbody.bmp:browsermob-core:2.1.5')
+    testCompile group: 'org.testcontainers', name: 'selenium', version: '1.11.1'
+
+    // logging
+    compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.25'
+    compile group: 'org.slf4j', name: 'slf4j-log4j12', version: '1.7.25'
+
+    testCompile group: 'org.assertj', name: 'assertj-core', version: '3.10.0'
+
+    //lombok
+    compileOnly 'org.projectlombok:lombok:1.18.12'
+    annotationProcessor 'org.projectlombok:lombok:1.18.12'
+    testCompileOnly 'org.projectlombok:lombok:1.18.12'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.12'
+
+    //restAssured
+    testCompile group: 'io.rest-assured', name: 'rest-assured', version: '4.2.0'
+    testImplementation 'io.rest-assured:json-path:4.2.0'
+    testImplementation 'io.rest-assured:json-schema-validator:4.2.0'
+}
+
+wrapper {
+    gradleVersion = '4.4'
+    distributionUrl = distributionUrl.replace("bin", "all")
+}

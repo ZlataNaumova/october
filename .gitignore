@@ -21,3 +21,20 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+
+.idea
+*.iml
+cucumber-runner.iml
+cucumber-tests.iml
+cucumber.log*
+*.gradle
+build/*
+!build.gradle
+out/*
+gradlew.bat
+*/build
+buildSrc/*
+
+# Gradle:
+.idea/gradle.xml
+.idea/libraries
