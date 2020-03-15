@@ -9,12 +9,13 @@ import org.junit.Before;
 import org.junit.Test;
 
 import static io.restassured.RestAssured.given;
+import static org.hamcrest.CoreMatchers.equalTo;
 
 public class RegistrationTest {
 
     @Before
     public void setup() {
-        RestAssured.baseURI = "https://api.october.eu/";
+        RestAssured.baseURI = "https://api.october.eu";
     }
 
 
@@ -27,11 +28,10 @@ public class RegistrationTest {
                                     .settings(settings).build();
 
 
-        Response response  = given().contentType(ContentType.JSON)
-        .when().body(user).post("/users");
-        response.body().prettyPrint();
-        response.then().assertThat().statusCode(400);
-//                .and().body("errors.type", equalTo("Veuillez sélectionner un type de compte"));
+        given().contentType(ContentType.JSON)
+        .when().body(user).post("/users")
+        .then().assertThat().statusCode(400)
+        .and().body("errors.type[0]", equalTo("Veuillez sélectionner un type de compte"));
 
     }
 }
