@@ -5,7 +5,7 @@ import lombok.Data;
 
 @Builder
 @Data
-public class settings {
+public class Settings {
     public String agreements;
 
 
