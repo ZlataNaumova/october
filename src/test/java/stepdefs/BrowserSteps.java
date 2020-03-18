@@ -103,8 +103,6 @@ public class BrowserSteps {
         return WebDriverRunner.getWebDriver().manage().logs()
                 .get(LogType.BROWSER).getAll().stream().filter(l -> l.getLevel().equals(Level.SEVERE))
                 .map(LogEntry::toString)
-                .filter(entry -> !entry.contains("api.mixpanel.com"))
-                .filter(entry -> !entry.contains("guide-images")) // some image are not available in dev
                 .collect(Collectors.toList());
     }
 
