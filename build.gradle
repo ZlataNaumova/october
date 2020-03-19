@@ -5,8 +5,6 @@ plugins {
 group 'testQA'
 version '1.0-SNAPSHOT'
 
-sourceCompatibility = 1.8
-
 repositories {
     mavenCentral()
 }
@@ -17,7 +15,6 @@ dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
     compile 'io.cucumber:cucumber-java:2.4.0'
     compile 'io.cucumber:cucumber-guice:2.4.0'
-    compile 'com.google.guava:guava:21.0'
 
     // dependency injection
     compile 'com.google.inject:guice:4.1.0'
@@ -38,11 +35,6 @@ dependencies {
     annotationProcessor 'org.projectlombok:lombok:1.18.12'
     testCompileOnly 'org.projectlombok:lombok:1.18.12'
     testAnnotationProcessor 'org.projectlombok:lombok:1.18.12'
-
-    //restAssured
-    testCompile group: 'io.rest-assured', name: 'rest-assured', version: '4.2.0'
-    testImplementation 'io.rest-assured:json-path:4.2.0'
-    testImplementation 'io.rest-assured:json-schema-validator:4.2.0'
 }
 
 wrapper {
